@@ -2,12 +2,15 @@ package perriAlessandro.U5w1D1;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import perriAlessandro.U5w1D1.entities.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
+@PropertySource("application.properties")
+// Annotazione OBBLIGATORIA se voglio usare i valori provenienti da application.properties
 public class BeansConfig {
 
     @Bean
