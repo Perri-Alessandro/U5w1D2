@@ -2,10 +2,7 @@ package perriAlessandro.U5w1D1;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import perriAlessandro.U5w1D1.entities.Bevande;
-import perriAlessandro.U5w1D1.entities.Menù;
-import perriAlessandro.U5w1D1.entities.Pizza;
-import perriAlessandro.U5w1D1.entities.Topping;
+import perriAlessandro.U5w1D1.entities.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +88,48 @@ public class BeansConfig {
     @Bean
     public Bevande fanta() {
         return new Bevande("Fanta", 2.5, 110);
+    }
+
+    @Bean
+    public Tavolo tavolo1() {
+        return new Tavolo(1, 4, false);
+    }
+
+    @Bean
+    public Tavolo tavolo2() {
+        return new Tavolo(2, 2, true);
+    }
+
+    @Bean
+    public Tavolo tavolo3() {
+        return new Tavolo(3, 5, true);
+    }
+
+    @Bean
+    public Tavolo tavolo4() {
+        return new Tavolo(4, 3, false);
+    }
+
+    @Bean
+    public Tavolo tavolo5() {
+        return new Tavolo(5, 1, true);
+    }
+
+    @Bean
+    public Tavolo tavolo6() {
+        return new Tavolo(6, 6, false);
+    }
+
+    @Bean(name = "tavoli")
+    public List<Tavolo> tavoli() {
+        List<Tavolo> tavoli = new ArrayList<>();
+        tavoli.add(tavolo1());
+        tavoli.add(tavolo2());
+        tavoli.add(tavolo3());
+        tavoli.add(tavolo4());
+        tavoli.add(tavolo5());
+        tavoli.add(tavolo6());
+        return tavoli;
     }
 
     @Bean(name = "menù")
