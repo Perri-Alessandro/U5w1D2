@@ -13,6 +13,3 @@ public class U5w1D1Application {
     }
 
 }
-
-
-// Si devono poter creare gli ordini inserendo i vari elementi dallo scanner

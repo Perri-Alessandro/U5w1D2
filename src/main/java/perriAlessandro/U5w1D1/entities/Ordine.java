@@ -4,7 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.beans.factory.annotation.Value;
 
+import javax.persistence.GeneratedValue;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -14,6 +16,7 @@ import java.util.List;
 @ToString
 public class Ordine {
 
+    @GeneratedValue
     public int nOrdine;
 
     public int nCoperti;
@@ -26,7 +29,16 @@ public class Ordine {
 
     private StatoOrdine stato;
 
+    @Value("${ordine.costo-coperto}")
     private double costoCoperto;
+
+    public Ordine(int nCoperti, LocalTime oraAcquisizione, Tavolo tavolo, List<Item> ordine, StatoOrdine stato) {
+        this.nCoperti = nCoperti;
+        this.oraAcquisizione = oraAcquisizione;
+        this.tavolo = tavolo;
+        this.ordine = ordine;
+        this.stato = stato;
+    }
 
     public double calcolaTotale() {
         double totale = ordine.stream().mapToDouble(Item::getPrezzo).sum();
